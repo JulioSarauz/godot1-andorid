@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bu3s8a01x6ise"]
+[gd_scene load_steps=4 format=3 uid="uid://bu3s8a01x6ise"]
 
 [ext_resource type="Script" uid="uid://c2v4c2yhvhn6u" path="res://menu/principal.gd" id="1_i3qnb"]
 [ext_resource type="Texture2D" uid="uid://6okdpm5eegw0" path="res://menu/dragon.png" id="2_52d4p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_52d4p"]
+bg_color = Color(0.95686275, 0.75686276, 0.38039216, 1)
 
 [node name="Principal" type="Control"]
 layout_mode = 3
@@ -23,7 +26,8 @@ flip_h = true
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0, 0.40784314, 1)
+theme_override_colors/font_color = Color(0.06666667, 0.19215687, 0.2784314, 1)
 theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxFlat_52d4p")
 text = "JUGAR"
 autowrap_trim_flags = 192
