@@ -1,0 +1,120 @@
+[gd_scene load_steps=5 format=3 uid="uid://1cnanixe1ij7"]
+
+[ext_resource type="Script" uid="uid://cp1oj0mpsnfqv" path="res://juego1/juego1.gd" id="1_pagyq"]
+[ext_resource type="Script" uid="uid://dt01k4m73am5w" path="res://juego1/restart_button.gd" id="2_uw1ni"]
+
+[sub_resource type="SystemFont" id="SystemFont_uw1ni"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erm0o"]
+bg_color = Color(0.68225265, 0.098320715, 0.28730837, 1)
+
+[node name="Juego1" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_pagyq")
+
+[node name="btnsalir" type="Button" parent="."]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 166.0
+offset_right = 998.0
+offset_bottom = 342.0
+theme_override_fonts/font = SubResource("SystemFont_uw1ni")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_erm0o")
+text = "SALIR"
+
+[node name="Board" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 637.0
+offset_right = 983.0
+offset_bottom = 1526.0
+columns = 3
+
+[node name="Cell1" type="Button" parent="Board"]
+modulate = Color(0.880361, 0.8871087, 0.95365196, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+
+[node name="Cell2" type="Button" parent="Board"]
+modulate = Color(0.880361, 0.8871087, 0.95365196, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+
+[node name="Cell3" type="Button" parent="Board"]
+modulate = Color(0.880361, 0.8871087, 0.95365196, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+
+[node name="Cell4" type="Button" parent="Board"]
+modulate = Color(0.880361, 0.8871087, 0.95365196, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+
+[node name="Cell5" type="Button" parent="Board"]
+modulate = Color(0.880361, 0.8871087, 0.95365196, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+
+[node name="Cell6" type="Button" parent="Board"]
+modulate = Color(0.880361, 0.8871087, 0.95365196, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+
+[node name="Cell7" type="Button" parent="Board"]
+modulate = Color(0.880361, 0.8871087, 0.95365196, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+
+[node name="Cell8" type="Button" parent="Board"]
+modulate = Color(0.880361, 0.8871087, 0.95365196, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+
+[node name="Cell9" type="Button" parent="Board"]
+modulate = Color(0.880361, 0.8871087, 0.95365196, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+
+[node name="WinnerPanel" type="GridContainer" parent="."]
+modulate = Color(1, 0.4745098, 1, 1)
+self_modulate = Color(0.11764706, 0.30588236, 1, 1)
+layout_mode = 0
+offset_left = 201.0
+offset_top = 481.0
+offset_right = 875.0
+offset_bottom = 1160.0
+
+[node name="LabelWinner" type="Label" parent="WinnerPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 60
+text = "Ganador"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="WinnerPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "JUGAR DE NUEVO"
+script = ExtResource("2_uw1ni")
