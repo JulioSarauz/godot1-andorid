@@ -1,11 +1,11 @@
 extends Control
 
 # La ruta se corrigió. Ahora va directamente a AnimatedSprite2D dentro de VBoxContainer.
-@onready var animated_dragonfly: AnimatedSprite2D = $VBoxContainer/AnimatedSprite2D
+@onready var animated_dragonfly: AnimatedSprite2D = $VBoxContainer/TextureRect/AnimatedSprite2D
 
 func _ready():
 	# Conecta la señal del botón
-	$Button.pressed.connect(_on_button_pressed)
+	$VBoxContainer/TextureRect/Button.pressed.connect(_on_button_pressed)
 	
 	# *** CORRECCIÓN: Llama a play() solo si el nodo se encontró correctamente ***
 	if animated_dragonfly:

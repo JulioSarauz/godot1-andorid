@@ -57,16 +57,18 @@ func _on_cell_pressed(index):
 	pressed_button.disabled = true
 	
 	# Lógica de victoria/empate
-	if check_winner(turn): # <--- Esta es la línea 53 que debe llamar a la función
-		show_winner(turn)
+	if check_winner(turn): # <--- Si hay ganador, la función check_winner se encarga de la espera/modal
 		return
+		
 	if check_draw():
-		show_winner("Empate")
+		# Para el empate, mostramos el modal inmediatamente
+		show_winner_panel("Empate")
 		return
 		
 	# Cambiar de turno
 	turn = "O" if turn == "X" else "X"
 
+# Función para verificar si hay un ganador
 # Función para verificar si hay un ganador
 func check_winner(player):
 	# Combinaciones ganadoras
@@ -79,10 +81,22 @@ func check_winner(player):
 	for w in wins:
 		if board_state[w[0]] == player and board_state[w[1]] == player and board_state[w[2]] == player:
 			highlight_win(w)
+			
+			# 1. Deshabilitar inmediatamente todas las celdas restantes para evitar más clics
+			for cell in board:
+				(cell as Button).disabled = true
+				
+			# 2. Usar un Tween para crear una pausa de 3 segundos
+			var tween = create_tween()
+			tween.tween_interval(3.0) # Espera de 3 segundos
+			
+			# 3. Después de la espera, llamar a la función que muestra el panel
+			# CORRECCIÓN DEFINITIVA: Usamos .bind() en la referencia a la función misma.
+			tween.tween_callback(show_winner_panel.bind(player))
+			
 			return true
 
 	return false
-
 # Función para verificar si hay empate
 func check_draw():
 	for state in board_state:
@@ -94,12 +108,12 @@ func check_draw():
 func highlight_win(indices):
 	for i in indices:
 		var button = board[i] as Button
-		# Usamos un color diferente para resaltar
-		button.add_theme_color_override("font_color", Color.RED)
+		# Usamos color verde para resaltar al ganar
+		button.add_theme_color_override("font_color", Color.GREEN)
 	pass
 
-# Función para mostrar el panel de ganador con animación
-func show_winner(player):
+# Función para mostrar el panel de ganador con animación (se ejecuta después de la espera)
+func show_winner_panel(player):
 	# El panel de victoria debe interceptar clics para que no se siga jugando
 	$WinnerPanel.mouse_filter = Control.MOUSE_FILTER_STOP
 	$WinnerPanel.visible = true
@@ -109,9 +123,7 @@ func show_winner(player):
 	else:
 		$WinnerPanel/fondo/LabelWinner.text = "Ganó el jugador " + player
 		
-	# Desactivar todas las celdas restantes
-	for cell in board:
-		(cell as Button).disabled = true
+	# La desactivación de celdas restantes ya se hizo en check_winner
 		
 	# Animación de aparición del panel de victoria
 	$WinnerPanel.pivot_offset = $WinnerPanel.size / 2

@@ -19,16 +19,16 @@ script = ExtResource("1_pagyq")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1080.0
+offset_bottom = 2388.0
 texture = ExtResource("2_b0ftk")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 64.0
-offset_top = 465.0
+offset_top = 562.0
 offset_right = 1033.0
-offset_bottom = 1707.0
+offset_bottom = 1804.0
 texture = ExtResource("3_kl5ts")
 
 [node name="btnsalir" type="Button" parent="."]
@@ -45,9 +45,9 @@ text = "SALIR"
 [node name="Board" type="GridContainer" parent="."]
 layout_mode = 0
 offset_left = 64.0
-offset_top = 501.0
+offset_top = 598.0
 offset_right = 1034.0
-offset_bottom = 1614.0
+offset_bottom = 1711.0
 columns = 3
 
 [node name="Cell1" type="Button" parent="Board"]
