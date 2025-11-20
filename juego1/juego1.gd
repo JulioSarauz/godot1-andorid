@@ -51,12 +51,17 @@ func highlight_win(indices):
 func show_winner(player):
 	$WinnerPanel.visible = true
 	if player == "Empate":
-		$WinnerPanel/LabelWinner.text = "¡Empate!"
+		$WinnerPanel/fondo/LabelWinner.text = "¡Empate!"
 	else:
-		$WinnerPanel/LabelWinner.text = "Ganó el jugador " + player
+		$WinnerPanel/fondo/LabelWinner.text = "Ganó el jugador " + player
 	for cell in board:
 		cell.disabled = true
-
+	$WinnerPanel.pivot_offset = $WinnerPanel.size / 2
+	$WinnerPanel.scale = Vector2(0.01, 0.01) 
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT) 
+	tween.set_trans(Tween.TRANS_BACK) 
+	tween.tween_property($WinnerPanel, "scale", Vector2(1.0, 1.0), 0.5) 
 
 func _on_RestartButton_pressed():
 	restart_game()

@@ -26,10 +26,10 @@ text = "SALIR"
 
 [node name="Board" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 98.0
-offset_top = 637.0
-offset_right = 983.0
-offset_bottom = 1526.0
+offset_left = 87.0
+offset_top = 383.0
+offset_right = 986.0
+offset_bottom = 573.0
 columns = 3
 
 [node name="Cell1" type="Button" parent="Board"]
@@ -96,25 +96,42 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 50
 
 [node name="WinnerPanel" type="GridContainer" parent="."]
+visible = false
 modulate = Color(1, 0.4745098, 1, 1)
 self_modulate = Color(0.11764706, 0.30588236, 1, 1)
 layout_mode = 0
 offset_left = 201.0
-offset_top = 481.0
+offset_top = 502.0
 offset_right = 875.0
-offset_bottom = 1160.0
+offset_bottom = 1181.0
 
-[node name="LabelWinner" type="Label" parent="WinnerPanel"]
+[node name="fondo" type="ColorRect" parent="WinnerPanel"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 20.0
+color = Color(0, 0.519729, 0.5016975, 1)
+
+[node name="LabelWinner" type="Label" parent="WinnerPanel/fondo"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 147.0
+offset_right = 671.0
+offset_bottom = 230.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 60
 text = "Ganador"
 horizontal_alignment = 1
 
-[node name="RestartButton" type="Button" parent="WinnerPanel"]
-layout_mode = 2
+[node name="RestartButton" type="Button" parent="WinnerPanel/fondo"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 364.0
+offset_right = 635.0
+offset_bottom = 524.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
 text = "JUGAR DE NUEVO"
 script = ExtResource("2_uw1ni")

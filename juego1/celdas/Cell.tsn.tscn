@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgwx31dy8i2u"]
+
+[sub_resource type="Animation" id="Animation_hjqiw"]
+resource_name = "draw_symbol"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fpch2"]
+_data = {
+&"draw_symbol": SubResource("Animation_hjqiw")
+}
+
+[node name="Cell_tsn" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="SymbolX" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+
+[node name="SymbolO" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fpch2")
+}
