@@ -5,7 +5,7 @@ extends Control
 
 func _ready():
 	# Conecta la señal del botón
-	$VBoxContainer/Button.pressed.connect(_on_button_pressed)
+	$Button.pressed.connect(_on_button_pressed)
 	
 	# *** CORRECCIÓN: Llama a play() solo si el nodo se encontró correctamente ***
 	if animated_dragonfly:

@@ -1,11 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bu3s8a01x6ise"]
+[gd_scene load_steps=7 format=3 uid="uid://bu3s8a01x6ise"]
 
 [ext_resource type="Script" uid="uid://c2v4c2yhvhn6u" path="res://menu/principal.gd" id="1_i3qnb"]
+[ext_resource type="Texture2D" uid="uid://wq1m2rd8j0p1" path="res://menu/INICIO.png" id="2_8qurq"]
 [ext_resource type="Texture2D" uid="uid://6okdpm5eegw0" path="res://menu/dragon.png" id="2_52d4p"]
 [ext_resource type="Texture2D" uid="uid://dbajpu1qwpw37" path="res://menu/dragon2.png" id="2_s0qtw"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_52d4p"]
-bg_color = Color(0.95686275, 0.75686276, 0.38039216, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8qurq"]
 animations = [{
@@ -21,10 +19,19 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_52d4p"]
+bg_color = Color(0.95686275, 0.75686276, 0.38039216, 0)
+
 [node name="Principal" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_i3qnb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1081.0
+offset_bottom = 1926.0
+texture = ExtResource("2_8qurq")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -33,17 +40,20 @@ offset_bottom = 1922.0
 theme_override_constants/separation = 200
 alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.06666667, 0.19215687, 0.2784314, 1)
-theme_override_font_sizes/font_size = 150
-theme_override_styles/normal = SubResource("StyleBoxFlat_52d4p")
-text = "JUGAR"
-autowrap_trim_flags = 192
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VBoxContainer"]
-position = Vector2(512, 454)
+position = Vector2(536, 1498)
 scale = Vector2(2.2250955, 2.0641758)
 sprite_frames = SubResource("SpriteFrames_8qurq")
 animation = &"dragonfly"
-frame_progress = 0.36757576
+frame_progress = 0.4612324
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 1006.0
+offset_right = 977.0
+offset_bottom = 1211.0
+theme_override_colors/font_color = Color(0.06666667, 0.19215687, 0.2784314, 1)
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxFlat_52d4p")
+autowrap_trim_flags = 192
