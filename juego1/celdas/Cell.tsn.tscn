@@ -1,22 +1,105 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgwx31dy8i2u"]
+[gd_scene load_steps=20 format=3 uid="uid://bgwx31dy8i2u"]
+
+[ext_resource type="Script" uid="uid://dam3hkrddefnd" path="res://juego1/celdas/cell.tsn.gd" id="1_5lei4"]
+[ext_resource type="Texture2D" uid="uid://biqmcs0kmiofs" path="res://recursos/1.png" id="2_e7axi"]
+[ext_resource type="Texture2D" uid="uid://xf5ynpl6mnst" path="res://recursos/image2.png" id="3_tmust"]
+[ext_resource type="Texture2D" uid="uid://rov6wbq1o6qq" path="res://recursos/image3.png" id="4_pixr2"]
+[ext_resource type="Texture2D" uid="uid://bt81er41sg3o5" path="res://recursos/image4.png" id="5_ocvp4"]
+[ext_resource type="Texture2D" uid="uid://bwmlman1jhxcn" path="res://recursos/image5.png" id="6_ckq5o"]
+[ext_resource type="Texture2D" uid="uid://c0phvgigix5ys" path="res://recursos/image6.png" id="7_ennsc"]
+[ext_resource type="Texture2D" uid="uid://682bqpxhe65l" path="res://recursos/imagen7.png" id="8_8tjwj"]
+[ext_resource type="Texture2D" uid="uid://7cl18vj62sis" path="res://recursos/circulo1.png" id="9_8tjwj"]
+[ext_resource type="Texture2D" uid="uid://c8vn3ay6lrlm6" path="res://recursos/circulo2.png" id="10_rxmb7"]
+[ext_resource type="Texture2D" uid="uid://dp1n4y7br06ut" path="res://recursos/circulo3.png" id="11_8cetj"]
+[ext_resource type="Texture2D" uid="uid://ce3kqjw66ls80" path="res://recursos/circulo4.png" id="12_b3wgu"]
+[ext_resource type="Texture2D" uid="uid://khoifldt6p3" path="res://recursos/circulo5.png" id="13_b6s3g"]
+[ext_resource type="Texture2D" uid="uid://bb5syl0rt0sek" path="res://recursos/circulo6.png" id="14_3ereo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pixr2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e7axi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tmust")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pixr2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ocvp4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ckq5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ennsc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8tjwj")
+}],
+"loop": false,
+"name": &"draw_symbol",
+"speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4rx0t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_8tjwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rxmb7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8cetj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_b3wgu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_b6s3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_3ereo")
+}],
+"loop": false,
+"name": &"drawn_symbol2",
+"speed": 8.0
+}]
 
 [sub_resource type="Animation" id="Animation_hjqiw"]
 resource_name = "draw_symbol"
 
+[sub_resource type="Animation" id="Animation_20uu4"]
+length = 0.001
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fpch2"]
 _data = {
+&"RESET": SubResource("Animation_20uu4"),
 &"draw_symbol": SubResource("Animation_hjqiw")
 }
 
-[node name="Cell_tsn" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="Cell_tsn" type="Node2D"]
+script = ExtResource("1_5lei4")
 
-[node name="SymbolX" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0)
+[node name="SymbolX" type="AnimatedSprite2D" parent="."]
+position = Vector2(120, 248)
+scale = Vector2(1.1377987, 1.0428249)
+sprite_frames = SubResource("SpriteFrames_pixr2")
+animation = &"draw_symbol"
+frame = 6
+frame_progress = 1.0
 
-[node name="SymbolO" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0)
+[node name="SymbolO" type="AnimatedSprite2D" parent="."]
+position = Vector2(135.99998, 240)
+scale = Vector2(1.2075471, 1.0867925)
+sprite_frames = SubResource("SpriteFrames_4rx0t")
+animation = &"drawn_symbol2"
+frame = 5
+frame_progress = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
